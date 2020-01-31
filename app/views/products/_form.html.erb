@@ -1,0 +1,47 @@
+
+<%=form_with model: @product,local: true do |form|%>
+  <p>
+  
+      <%= form.text_field :product_name ,placeholder: "Enter Product Name.....",class:"form_item"%>
+  </p>
+  <p>
+  
+     <%= form.text_field :price ,placeholder: "Enter Product Price.....",class:"form_item"%>
+  </p>
+  <p>
+   
+     <%= form.text_field :quantity,placeholder: "Enter Product Quantity.....",class:"form_item" %>
+  </p>
+  <p>
+    <%= form.file_field :image %>
+  </p>
+  <p>
+
+      <%= form.select(:category_name,Category.all.collect {|c| [ c.category_name, c.id ] },class:"form_item") %>
+  </p>
+  <p>
+      New Category:<input type="checkbox" id="new" onClick="newCategory()",class:"form_item",class:"form_item" >
+      <%= form.text_field :category_name, id: 'new_category' ,style: 'display:none',placeholder: "Enter New Category Name.....",class:"form_item" %>
+   </p> 
+  <p>
+    <input type="checkbox" name="product[company][]" class="check_item" value="HP">HP
+    <input type="checkbox" name="product[company][]" class="check_item" value="DELL">DELL
+    <input type="checkbox" name="product[company][]" class="check_item" value="Bacancy">bacancy
+  </p>
+  <p>
+    <%= form.submit class:"form_item" %>
+  </p>
+   <% end %>
+
+   <script>
+      function newCategory() {
+        var checkBox = document.getElementById("new");
+        var text = document.getElementById("new_category");
+        if (checkBox.checked == true){
+          text.style.display = "block";
+        } else {
+          text.style.display = "none";
+        }
+      }
+</script>
+  

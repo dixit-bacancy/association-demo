@@ -1,0 +1,9 @@
+<%=form_with model: @category,local: true do |form|%>
+    <p>
+    Category Name:
+    <%= form.text_field :name %>
+  </p>
+  <p>
+  <%=form.submit%>
+  </p>
+   <% end %>

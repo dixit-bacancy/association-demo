@@ -1,0 +1,26 @@
+<p>
+Product Name:
+<%= @product.product_name%>
+</p>
+<p>
+Product Price:
+<%= @product.price%>
+</p>
+<p>
+Product Category:
+<% @product.categories.each do |category|%>
+    <%= category.category_name%>
+<%end%>
+    </p>
+<p>
+
+Product Company:
+<% @product.company.each do |company|%>
+    <%= company%>
+<% end %>
+
+</p>
+
+<p>
+	<%= image_tag(@product.image) %>
+	</p>
